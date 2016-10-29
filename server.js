@@ -10,6 +10,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(express.static('app'));
+
+app.get('/', function (req, res) {
+	//res.send('Welcome to the Star Wars Page!');
+	// Send index.html
+	res.sendFile(path.join(__dirname + '/app/public/home.html'));
+});
 
 app.listen(PORT, function () {
 	console.log('App listening on PORT ' + PORT);
