@@ -4,9 +4,45 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Friend Finder</title>
-	<link rel="stylesheet" href="">
+	
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/public/css/materialize.min.css"  media="screen,projection"/>
+    <!-- local stylesheet -->
+	<link type="text/css" rel="stylesheet" href="/public/css/style.css"/>
+    <!-- Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
 </head>
 <body>
-	<h1>Home Page</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<div id="box">
+					<h1 class="center-align">Friend Finder</h1>
+					<hr>
+					<h4 class="center-align">Answer a few basic questions.</h4>
+					<h4 class="center-align">Then find the friend with the greatest compatibility!</h4>
+	
+				
+						<a class="card-panel hoverable btn" onclick="loadSurveyPage()"><i class="material-icons left">library_books</i>Go to Survey</a>
+					
+				</div>
+			</div>
+				
+		</div>	
+	</div>
+
+	<script>
+		function loadSurveyPage() {
+			location.href = "/survey";
+		}
+	</script>
+	<!--Import jQuery before materialize.js-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/public/js/materialize.min.js"></script>
+
 </body>
 </html>

@@ -13,9 +13,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static('app'));
 
 app.get('/', function (req, res) {
-	//res.send('Welcome to the Star Wars Page!');
-	// Send index.html
 	res.sendFile(path.join(__dirname + '/app/public/home.html'));
+});
+app.get('/survey', function (req, res) {
+	res.sendFile(path.join(__dirname + '/app/public/survey.html'));
 });
 
 app.listen(PORT, function () {
