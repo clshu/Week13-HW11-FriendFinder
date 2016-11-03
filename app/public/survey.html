@@ -4,9 +4,162 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Survey</title>
-	<link rel="stylesheet" href="">
+	<link type="text/css" rel="stylesheet" href="/public/css/style.css"/>
+    <!-- Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-	<h1>Survey</h1>
+<h1 style="font-style: italic;">Survey Questions</h1>
+<hr>
+<h2 style="font-weight: bolder; font-style: italic;">About You</h2>
+<div id="surveyPage">
+  <form>
+    <label for="name">Name (Required)</label>
+    <input type="text" id="name" name="name">
+
+    <label for="link">Link to Photo Image (Required)</label>
+    <input type="text" id="link" name="link">
+
+    <label for="q1">Q1<br>My Question<br></label>
+    <select class="questions" id="q1" name="q1">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q2"><br>Q2<br>My Question<br></label>
+    <select class="questions" id="q2" name="q2">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q3"><br>Q3<br>My Question<br></label>
+    <select class="questions" id="q3" name="q3">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q4"><br>Q4<br>My Question<br></label>
+    <select class="questions" id="q4" name="q4">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q4"><br>Q5<br>My Question<br></label>
+    <select class="questions" id="q5" name="q5">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q6"><br>Q6<br>My Question<br></label>
+    <select class="questions" id="q6" name="q6">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q7"><br>Q7<br>My Question<br></label>
+    <select class="questions" id="q7" name="q7">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q8"><br>Q8<br>My Question<br></label>
+    <select class="questions" id="q8" name="q8">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q9"><br>Q9<br>My Question<br></label>
+    <select class="questions" id="q9" name="q9">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+
+    <label for="q10"><br>Q10<br>My Question<br></label>
+    <select class="questions" id="q10" name="q10">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select>
+    <!-- Replace type="submit" with "button" so form won't try to send request, this homework is meant to exercise $.post -->
+    <input type="button" value="Submit" id="submitBtn">
+  </form>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+	function validateForm () {
+		// No empty input field is allowed
+		return (!name && !link && !q1 && !q2 && !q3 && !q4 &&
+		 !q5 && !q6 && !q7 && !q8 && !q9 && !q10);
+	}
+
+	$("#submitBtn").on('click', function () {
+		var name = $("#name").val();
+		var link = $("#link").val();
+		var q1 = $("#q1").val();
+		var q2 = $("#q2").val();
+		var q3 = $("#q3").val();
+		var q4 = $("#q4").val();
+		var q5 = $("#q5").val();
+		var q6 = $("#q6").val();
+		var q7 = $("#q7").val();
+		var q8 = $("#q8").val();
+		var q9 = $("#q9").val();
+		var q10 = $("#q10").val();
+		console.log("I'm Here");
+
+		if (validateForm()) {
+			// ajax
+		} else {
+			alert('Please fill out all fields before submitting.')
+		}
+		
+	});
+</script>
+
 </body>
 </html>
