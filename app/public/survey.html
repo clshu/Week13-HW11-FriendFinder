@@ -131,11 +131,6 @@
 </script>
 
 <script type="text/javascript">
-	function validateForm () {
-		// No empty input field is allowed
-		return (!name && !photo && !q1 && !q2 && !q3 && !q4 &&
-		 !q5 && !q6 && !q7 && !q8 && !q9 && !q10);
-	}
 
 	$("#submitBtn").on('click', function () {
 		var name = $("#name").val().trim();
@@ -151,22 +146,23 @@
 		var q9 = $("#q9").val();
 		var q10 = $("#q10").val();
 		console.log("I'm Here");
-
-    // if all fields are filled out
-		if (validateForm()) {
-			// ajax post
-      var user = {
+     var user = {
         name: name,
         photo: photo,
         scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
       };
+    console.log(user);
 
+    // if all fields are filled out
+		if (name && photo && q1 && q2 && q3 && q4 &&
+     q5 && q6 && q7 && q8 && q9 && q10) {
+			// do ajax post
+     
       var currentURL = window.location.origin;
 
       $.post(currentURL + "/api/friends", user, function(data){
-        console.log(data.name);
-        console.log(data.photo);
-        console.log(data.scores);
+        console.log(data);
+
       });
 		} else {
 			alert('Please fill out all fields before submitting.')
