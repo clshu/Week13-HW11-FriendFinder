@@ -17,8 +17,8 @@
     <label for="name">Name (Required)</label>
     <input type="text" id="name" name="name">
 
-    <label for="link">Link to Photo Image (Required)</label>
-    <input type="text" id="link" name="link">
+    <label for="photo">Link to Photo Image (Required)</label>
+    <input type="text" id="photo" name="photo">
 
     <label for="q1">Q1<br>My Question<br></label>
     <select class="questions" id="q1" name="q1">
@@ -119,8 +119,8 @@
       <option value="4">4</option>
       <option value="5">5 (Strongly Agree)</option>
     </select>
-    <!-- Replace type="submit" with "button" so form won't try to send request, this homework is meant to exercise $.post -->
-    <input type="button" value="Submit" id="submitBtn">
+  
+    <input type="submit" value="Submit" id="submitBtn">
   </form>
 </div>
 
@@ -133,13 +133,13 @@
 <script type="text/javascript">
 	function validateForm () {
 		// No empty input field is allowed
-		return (!name && !link && !q1 && !q2 && !q3 && !q4 &&
+		return (!name && !photo && !q1 && !q2 && !q3 && !q4 &&
 		 !q5 && !q6 && !q7 && !q8 && !q9 && !q10);
 	}
 
 	$("#submitBtn").on('click', function () {
-		var name = $("#name").val();
-		var link = $("#link").val();
+		var name = $("#name").val().trim();
+		var photo = $("#photo").val().trim();
 		var q1 = $("#q1").val();
 		var q2 = $("#q2").val();
 		var q3 = $("#q3").val();
@@ -152,12 +152,27 @@
 		var q10 = $("#q10").val();
 		console.log("I'm Here");
 
+    // if all fields are filled out
 		if (validateForm()) {
-			// ajax
+			// ajax post
+      var user = {
+        name: name,
+        photo: photo,
+        scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+      };
+
+      var currentURL = window.location.origin;
+
+      $.post(currentURL + "/api/friends", user, function(data){
+        console.log(data.name);
+        console.log(data.photo);
+        console.log(data.scores);
+      });
 		} else {
 			alert('Please fill out all fields before submitting.')
 		}
 		
+    return false;
 	});
 </script>
 
