@@ -1,7 +1,7 @@
 {
   "name": "friend_finder",
   "version": "1.0.0",
-  "description": "HW11, Full stack development of a dating app",
+  "description": "Week13 HW11, Full stack development of a matchin app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
