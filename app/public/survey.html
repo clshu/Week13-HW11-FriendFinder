@@ -219,7 +219,7 @@
   // Handling modal
 
   //
-  // Fill out the name and photo in th modal the show modal
+  // Fill out the name and photo in th modal then show modal
   //
   function showModal(data) {
     $("#matchName").html(data.name);
@@ -229,12 +229,12 @@
   //
   // Hide modal by reloading the page
   // It sets class modal's display: none
-  // and clean up name and photo fields on modal
-  // and all of name, photo and quetions fields
+  // It also cleans up name and photo fields on modal
+  // and name, photo and quetions fields
   // on surey.html
   //
   function hideModal() {
-  
+    // reload page
     location.href = "/survey";    
   }
   //
