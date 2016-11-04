@@ -21,8 +21,11 @@ module.exports = function (app) {
 	}
 	function findMatch(user, friends) {
 		// 10 numbers in scores, so larget diffs between 2 arrays
-		// is 10 * (5 - 1) = 40
-		var lowestDiff = 40; 
+		// is 10 * (5 - 1) = 40, the initial value of lowestDiff
+		// should be greater than 40 so any diff will be smaller than
+		// initial value and replace the initial value with newly
+		// computed diffs
+		var lowestDiff = 41; 
 		var match = null;
 
 		for (var i = 0; i < friends.length; i++) {

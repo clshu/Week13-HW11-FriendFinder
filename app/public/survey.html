@@ -123,6 +123,30 @@
     <input type="submit" value="Submit" id="submitBtn">
   </form>
 </div>
+  <footer>
+    <!-- GET "/api/friends" -->
+    <a href="/api/friends">API Friends List<a/> | <a href="https://github.com/clshu/Week13-HW11-FriendFinder">GitHub Repo<a/>
+  </footer>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">×</span>
+    <h2>Best Match</h2>
+  </div>
+  <div class="modal-body">
+    <p id="matchName"></p>
+    <p><img id="matchPhoto" src="" alt=""></p>
+  </div>
+  <div class="modal-footer">
+    <small>Chin-Long Shu &copy;2016</small>
+  </div>
+</div>
+
+</div>
 
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -133,6 +157,8 @@
 <script type="text/javascript">
 
 	$("#submitBtn").on('click', function () {
+    // The 'form's ability to sent GET is not taught on week13
+    // so not required, use attribute "id" to get values
 		var name = $("#name").val().trim();
 		var photo = $("#photo").val().trim();
 		var q1 = $("#q1").val();
@@ -145,24 +171,26 @@
 		var q8 = $("#q8").val();
 		var q9 = $("#q9").val();
 		var q10 = $("#q10").val();
-		console.log("I'm Here");
-     var user = {
+
+    //
+    // validate it if all fields are filled out
+    // 
+		if (name && photo && q1 && q2 && q3 && q4 &&
+     q5 && q6 && q7 && q8 && q9 && q10) {
+			// do ajax post
+      var user = {
         name: name,
         photo: photo,
         scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
       };
-    console.log(user);
-
-    // if all fields are filled out
-		if (name && photo && q1 && q2 && q3 && q4 &&
-     q5 && q6 && q7 && q8 && q9 && q10) {
-			// do ajax post
+      console.log(user);
      
       var currentURL = window.location.origin;
 
       $.post(currentURL + "/api/friends", user, function(data){
         console.log(data);
 
+        showModal(data);
       });
 		} else {
 			alert('Please fill out all fields before submitting.')
@@ -170,6 +198,44 @@
 		
     return false;
 	});
+
+  // Handling modal
+
+  //
+  // Fill out the name and photo in th modal the show modal
+  //
+  function showModal(data) {
+    $("#matchName").html(data.name);
+    $("#matchPhoto").attr("src", data.photo).attr("alt", data.name);
+    $(".modal").show();
+  }
+  //
+  // Hide modal by reloading the page
+  // It sets class modal's display: none
+  // and clean up name and photo fields on modal
+  // and all of name, photo and quetions fields
+  // on surey.html
+  //
+  function hideModal() {
+  
+    location.reload(true);    
+  }
+  //
+  // When Close button "x" is click, it hides modal
+  //
+  $(".close").on('click', function () {
+    hideModal();
+  });
+  //
+  // When it's clicked outside of "modal-content" box,
+  // it's in class "modal"s area. It hides modal too.
+  //
+  $(document).on('click', function(event) {
+ 
+    if ($(event.target).attr("id") == $(".modal").attr("id")) {
+        hideModal();
+    }
+  });
 </script>
 
 </body>
