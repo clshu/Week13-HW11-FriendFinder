@@ -41,6 +41,12 @@ footer {
     padding: 20px;
 }
 
+label {
+    font-weight: bolder;
+    font-style: 15px;
+    line-height: 1.4;
+}
+
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
