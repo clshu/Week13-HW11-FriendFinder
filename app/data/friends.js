@@ -1,3 +1,5 @@
+// All inital load data of friends are stored here
+
 var myFriends = [
 {
 name: "Ahmed",
