@@ -7,6 +7,6 @@ The data are stored in an array for this homework as required.
 
 The survey page uses forms to collect data and modal to show result.
 
-I use html/css combination only to create similar look and feels. I tried materialze framework but it's hard to work with modal code.
+I use html/css combination only to create similar look and feel to the demo. 
 
 The questions in the survey are copied from https://www.16personalities.com

@@ -14,8 +14,11 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // 'app' is the top of static file directories
 app.use(express.static('app'));
 // load html and api routing handlers
-require('./app/routing/html-routes')(app);
 require('./app/routing/api-routes')(app);
+// api-routes should be called before html-routes
+// So default USE '/' route in html-routes.js
+// can be the last route
+require('./app/routing/html-routes')(app);
 
 // listen to PORT
 app.listen(PORT, function () {
